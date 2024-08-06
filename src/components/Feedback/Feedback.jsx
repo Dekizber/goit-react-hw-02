@@ -1,6 +1,9 @@
+import clsx from "clsx";
+import s from "./Feedback.module.css";
+
 const Feedback = ({ reviews, positive, total }) => {
   return (
-    <ul>
+    <ul className={clsx(s.feedList)}>
       {reviews.map(([key, value]) => (
         <li key={key}>
           {key}: {value}

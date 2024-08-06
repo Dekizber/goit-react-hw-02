@@ -1,5 +1,8 @@
+import clsx from "clsx";
+import s from "./Notification.module.css";
+
 const Notification = () => {
-  return <div>Notification</div>;
+  return <div className={clsx(s.notif)}>No feedback yet!</div>;
 };
 
 export default Notification;

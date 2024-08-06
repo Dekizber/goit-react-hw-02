@@ -2,14 +2,23 @@ import Description from "./components/Description/Description";
 import Feedback from "./components/Feedback/Feedback";
 import Notification from "./components/Notification/Notification";
 import Options from "./components/Options/Options";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const App = () => {
-  const [reviews, setReviews] = useState({
+  const initialState = {
     good: 0,
     neutral: 0,
     bad: 0,
-  });
+  };
+
+  const [reviews, setReviews] = useState(
+    () => JSON.parse(window.localStorage.getItem("reviews")) ?? initialState
+  );
+
+  useEffect(
+    () => window.localStorage.setItem("reviews", JSON.stringify(reviews)),
+    [reviews]
+  );
 
   const updateFeedback = (feedbackType) => {
     setReviews((prev) => ({ ...prev, [feedbackType]: prev[feedbackType] + 1 }));

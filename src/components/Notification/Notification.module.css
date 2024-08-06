@@ -1,0 +1,8 @@
+.notif {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: bold;
+}
